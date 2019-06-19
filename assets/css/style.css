@@ -1,0 +1,19 @@
+.display-4{
+    font-size:75px;
+    font-weight: bolder;
+    color:yellow;
+    text-align:center;
+}
+.lead{
+    text-align:center;
+    color:blue;
+}
+.col-md-6{
+    border: 2px dotted black;
+    background-color:grey;
+    opacity:.85;
+
+}
+body{
+    background-image: url("../images/background.jpg")
+}

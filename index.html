@@ -5,14 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Word Guess</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="game.js"></script>
 
 </head>
 
 <body>
-
+    <div class="content">
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Hangman</h1>
+                <p class="lead">Animal Style</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="incomingPic"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="insideText">
+                        <p>Press any key to get started!</p>
+                        <p>Wins</p>
+                        <p class="wins"></p>
+                        <p>Current Word</p>
+                        <p class="fillBlank"></p>
+                        <p>Number of Guesses Remaining</p>
+                        <p class="guessLeft"></p>
+                        <p>Letters Already Guessed</p>
+                        <p class="lettersGuessed"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
