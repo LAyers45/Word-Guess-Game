@@ -1,6 +1,5 @@
 //All use variables
 
-var timesPressed = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 //variable has words in word bank
 var wordBank = ["tiger", "monkey", "panther", "lizard", "bear", "lion", "snake", "rhino"]
@@ -42,7 +41,6 @@ function reset() {
     correctCounter = 0;
     correct = [];
     incorrect = [];
-    timesPressed = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     runGame();
 };
 //Function to run game
@@ -60,7 +58,6 @@ function runGame() {
     correctCounter = 0;
     correct = [];
     incorrect = [];
-    timesPressed = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     // fills elements with blanks
     for (var i = 0; i < letterCount; i++) {
@@ -111,10 +108,24 @@ function comparison(userInput) {
 
 
 }
+//function to determine win loss conditions
+function result() {
+    //win con
+    if (correctCounter === letterCount) {
+        winNum++;
+        document.getElementById("wins").innerHTML = winNum;
+        reset();
+    }
+    //loss con
+    else if (guessesRemain === 0) {
+        reset();
+    }
+}
 //Starting Game
 document.onkeyup = function (event) {
     var userGuess = event.key; {
         comparison(userGuess);
+        result();
     }
 
 

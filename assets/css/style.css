@@ -7,12 +7,17 @@
 .lead{
     text-align:center;
     color:blue;
+    font-size: 30px;
+    font-weight:bold;
 }
 .col-md-6{
     border: 2px dotted black;
     background-color:grey;
     opacity:.85;
 
+}
+p{
+    font-weight:bold;
 }
 body{
     background-image: url("../images/background.jpg")
