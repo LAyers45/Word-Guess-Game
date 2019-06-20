@@ -115,10 +115,13 @@ function result() {
         winNum++;
         document.getElementById("wins").innerHTML = winNum;
         reset();
+        document.getElementById("guessLeft").innerHTML = guessesRemain;
     }
     //loss con
     else if (guessesRemain === 0) {
         reset();
+        console.log(guessesRemain);
+        document.getElementById("guessLeft").innerHTML = guessesRemain;
     }
 }
 //Starting Game
