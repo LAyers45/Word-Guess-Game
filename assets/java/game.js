@@ -3,7 +3,7 @@
 var timesPressed = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 //variable has words in word bank
-var wordBank = ["chimpanzee", "orangutan", "cheetah", "crocodile", "elephant", "lion", "gorilla", "rhinoceros"]
+var wordBank = ["tiger", "monkey", "panther", "lizard", "bear", "lion", "snake", "rhino"]
 //variable has selected word
 var wordSelect = "";
 // Sees what letters are in words
@@ -19,6 +19,10 @@ var winNum = 0;
 var guessesRemain = 10;
 var correctCounter = 0;
 var numGuessed = 0;
+
+runGame();
+
+//Starting Game
 
 
 // Functions below
@@ -61,21 +65,57 @@ function runGame() {
     // fills elements with blanks
     for (var i = 0; i < letterCount; i++) {
         correct.push("-");
-        document.getElementsByClassName("fillBlank").innerHTML = correct;
+        document.getElementById("fillBlank").innerHTML = correct;
     }
 
     //join correct back into a string from array
-    document.getElementsByClassName("fillBlank").innerHTML = correct.join(" ");
+    document.getElementById("fillBlank").innerHTML = correct.join("");
     // push changes to html page
-    document.getElementsByClassName("wins").innerHTML = winNum;
-    document.getElementsByClassName("guessLeft").innerHTML = guessesRemain;
-    document.getElementsByClassName("lettersGuessed").innerHTML = incorrect;
+    document.getElementById("wins").html = winNum;
+
+    document.getElementById("guessLeft").html = guessesRemain;
+    document.getElementById("lettersGuessed").html = incorrect;
 
     //logging
-    console.log(wordSelect);
-    console.log(lettersInWord);
-    console.log(letterCount);
+    //console.log(wordSelect);
+    //console.log(lettersInWord);
+    //console.log(letterCount);
 
 };
+function comparison(userInput) {
+    //if user selects a correct letter
+    if (wordSelect.indexOf(userInput) > -1) {
+        //counter counts up to length of word
+        for (var i = 0; i < letterCount; i++) {
+            //at each letter check if they match
+            if (lettersInWord[i] === userInput) {
+                correctCounter++;
+                correct[i] = userInput;
+                document.getElementById("fillBlank").innerHTML = correct.join(" ");
+            }
 
-runGame();
+        }
+        console.log(correct);
+    }
+    //if the user selects incorrectly
+    else {
+        incorrect.push(userInput);
+        guessesRemain--;
+
+        //update the html
+        document.getElementById("guessLeft").innerHTML = guessesRemain;
+        document.getElementById("lettersGuessed").innerHTML = incorrect;
+        console.log(incorrect);
+
+    }
+
+
+}
+//Starting Game
+document.onkeyup = function (event) {
+    var userGuess = event.key; {
+        comparison(userGuess);
+    }
+
+
+}
